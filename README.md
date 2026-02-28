@@ -4,7 +4,7 @@ Repository for the `agent-email-cli` Codex skill.
 
 ## Skill
 
-- `agent-email-cli`
+- `skills/agent-email-cli`
 
 This skill provides a workflow for using the `agent-email` CLI to:
 
@@ -13,11 +13,3 @@ This skill provides a workflow for using the `agent-email` CLI to:
 - Retrieve full message details
 - Manage local mailbox profiles
 - Troubleshoot common CLI issues
-
-## Validate
-
-Use the skill-creator validator:
-
-```bash
-python3 /Users/isaacdavid/.codex/skills/.system/skill-creator/scripts/quick_validate.py agent-email-cli
-```
