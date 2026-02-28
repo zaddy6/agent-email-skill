@@ -37,9 +37,10 @@ agent-email create
 Record these fields from JSON output:
 
 - `data.email`
-- `data.password`
 - `data.accountId`
 - `data.activeEmail`
+
+Do not record, repeat, or print secret values such as mailbox passwords or tokens.
 
 3. Read latest messages.
 
@@ -72,9 +73,10 @@ Use `show` when you need body/source details for verification links, codes, or f
 ```bash
 agent-email accounts list
 agent-email use <email|default>
-agent-email accounts add <email> --password <password> --set-default
 agent-email accounts remove <email>
 ```
+
+Avoid commands that require entering secrets on the command line in agent logs.
 
 6. Delete processed/irrelevant message when requested.
 
@@ -86,8 +88,9 @@ agent-email delete <email|default> <messageId>
 
 - Keep command output machine-readable; avoid forcing human output unless requested.
 - Prefer `default` alias when user does not specify an email.
+- Never echo, store, or summarize secret values (`password`, `token`) from command output.
 - If command fails, surface the JSON error `code` and `hint` fields directly.
-- For auth failures (`AUTH_REQUIRED`/401), rerun command once after account/token refresh command (`accounts add` with known password) if needed.
+- For auth failures (`AUTH_REQUIRED`/401), rerun command once and request user intervention if credentials must be re-established.
 - For rate limits (`RATE_LIMITED`/429), retry after short delay.
 
 ## Troubleshooting

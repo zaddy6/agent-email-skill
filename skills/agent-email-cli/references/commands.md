@@ -13,7 +13,6 @@ agent-email delete <email|default> <messageId>
 
 ```bash
 agent-email accounts list
-agent-email accounts add <email> --password <pwd> [--set-default]
 agent-email accounts remove <email|default>
 agent-email use <email|default>
 agent-email config path
@@ -48,9 +47,11 @@ or on failure:
 
 ## High-signal fields
 
-- `create`: `data.email`, `data.password`, `data.accountId`, `data.activeEmail`
+- `create`: `data.email`, `data.accountId`, `data.activeEmail`
 - `read`: `data.messages[]` with `id`, `from.address`, `subject`, `createdAt`, `seen`
 - `show`: `data.message`, optional `data.source`
+
+Do not extract or print secret fields (`password`, `token`) in summaries.
 
 ## Common automation snippets
 
